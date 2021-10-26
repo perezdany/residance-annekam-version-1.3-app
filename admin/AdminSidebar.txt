@@ -1,0 +1,130 @@
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #191a1e;">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../views/indexview.php">
+        <div class="sidebar-brand-icon rotate-n-15">
+         
+        </div>
+        <div class="sidebar-brand-text mx-3">RESIDENCES <sup>ANNEKAM</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="../views/indexview.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Tableau de bord</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        gestions
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Gestions internes</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestions internes:</h6>
+            <a class="collapse-item" href="table.php">Tableau de bord(mensuel)</a>
+            <a class="collapse-item" href="../admin/reserv_history.php">Historique des réservations</a>
+            <a class="collapse-item" href="recoveries.php">Entretiens d'appartements</a>
+            <a class="collapse-item" href="month_recoveries.php">Entretiens mensuel</a>
+            <a class="collapse-item" href="appartment.php">Gestion d'appartements</a>
+             <a class="collapse-item" href="batiment.php">Gestion de batiments</a>
+            <a class="collapse-item" href="bed.php">Gestion de lits</a>
+            <a class="collapse-item" href="admin.php">Gestion d'admin</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Gestions extrenes</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestions extrenes:</h6>
+            <a class="collapse-item" href="customer.php">Clients</a>
+            <a class="collapse-item" href="reservation.php">Réservations</a>
+            <a class="collapse-item" href="fact.php">factures</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Actions
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Activités</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Activités:</h6>
+             <?php 
+                $q = $bdd->query("SELECT type FROM admin WHERE pseudo='".$_SESSION['pseudo']."'");
+                while($type = $q->fetch())
+                {
+
+                  if($type[0]=="standar")
+                  {
+                   
+                  }
+                  else
+                  {
+                    echo'<a class="collapse-item" href="../admin/periodly_earn.php">Chiffre d\'affaire périodique</a>';
+                  }
+                }
+            ?>
+            <a class="collapse-item" href="../register.php">Ajouter une réservation</a>
+            <a class="collapse-item" href="../index.php">Connexion</a>
+            <!--<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="404.html">404 Page</a>
+            <a class="collapse-item" href="blank.html">Blank Page</a>-->
+          </div>
+        </div>
+      </li>
+      <!-- //Nav Item - Charts 
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span></a>
+      </li>-->
+
+      <!-- //Nav Item - Tables 
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tables</span></a>
+      </li>-->
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
